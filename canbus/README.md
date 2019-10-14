@@ -1,0 +1,2 @@
+- compiled in a virtual enviroment using Python 3.5 as interpreter
+- added libraries: `canopen` and `pyserial`

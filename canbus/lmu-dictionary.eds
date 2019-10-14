@@ -1,0 +1,1954 @@
+[1000]
+ParameterName=DeviceType
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00000000
+PDOMapping=0
+
+[1001]
+ParameterName=ErrorRegister
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[1008]
+ParameterName=DeviceName
+ObjectType=0x7
+DataType=0x0009
+AccessType=const
+DefaultValue=BMS120V
+PDOMapping=0
+
+[100c]
+ParameterName=Guard Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[100d]
+ParameterName=Life Time Factor
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0x00
+PDOMapping=0
+
+[1017]
+ParameterName=ProducerHeartbeatTime
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1018]
+ParameterName=IdentityObject
+ObjectType=0x9
+SubNumber=5
+
+[1018sub0]
+ParameterName=NumberOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+LowLimit=1
+HighLimit=4
+
+[1018sub1]
+ParameterName=VendorID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x76543210
+PDOMapping=0
+
+[1018sub2]
+ParameterName=ProductCode
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=10001
+PDOMapping=0
+
+[1018sub3]
+ParameterName=RevisionNumber
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00010000
+PDOMapping=0
+
+[1018sub4]
+ParameterName=SerialNumber
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+
+[1400]
+;------------------------------------------------------------;
+; Define PLC TX PDO with COB 0x200                           ;
+;   LMU RX System Request                                    ;
+;------------------------------------------------------------;
+ParameterName=PLC TX System Request 0x200
+ObjectType=0x9
+SubNumber=3
+
+[1400sub0]
+ParameterName=NumberOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+LowLimit=2
+HighLimit=5
+
+[1400sub1]
+ParameterName=PDO COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=$NodeId+0x200
+PDOMapping=0
+
+[1400sub2]
+ParameterName=TransmissionType
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+; PDO triggered via a asynchronous device profile specific event
+DefaultValue=255
+PDOMapping=0
+
+[1401]
+;------------------------------------------------------------;
+; Define PLC TX PDO with COB 0x300                           ;
+;   LMU RX Calibration                                       ;
+;------------------------------------------------------------;
+ParameterName=PLC TX Calibration 0x300
+ObjectType=0x9
+SubNumber=3
+
+[1401sub0]
+ParameterName=NumberOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+LowLimit=2
+HighLimit=5
+
+[1401sub1]
+ParameterName=PDO COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=$NodeId+0x300
+PDOMapping=0
+
+[1401sub2]
+ParameterName=TransmissionType
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+; PDO triggered via a asynchronous device profile specific event
+DefaultValue=255
+PDOMapping=0
+
+[1600]
+;------------------------------------------------------------;
+; Define OD Mappings PLC TX PDO with COB 0x200               ;
+;   LMU RX System Request                                    ;
+;------------------------------------------------------------;
+ParameterName=PLC TX System Request Mappings 0x200
+ObjectType=0x9
+SubNumber=5
+
+[1600sub0]
+ParameterName=NumberOfMappedApplicationObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+; Change - rhowlett 20140421
+;DefaultValue=2
+DefaultValue=4
+PDOMapping=0
+
+[1600sub1]
+;-----------------------------------;
+; Byte 0 : Reset Flag(s)            ;
+;-----------------------------------;
+ParameterName=Reset Flags
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40100008
+PDOMapping=0
+
+[1600sub2]
+;-----------------------------------;
+; Byte 1 : Indicators               ;
+;-----------------------------------;
+ParameterName=PLC Indicators
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40110008
+PDOMapping=0
+
+[1600sub3]
+; Added - rhowlett 20140421
+;-----------------------------------;
+; Byte 2-3 : Datum Index            ;
+;-----------------------------------;
+ParameterName=Datum Index
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x20000210
+PDOMapping=0
+
+[1600sub4]
+; Added - rhowlett 20140421
+;-----------------------------------;
+; Byte 4 : Datum Sub-Index          ;
+;-----------------------------------;
+ParameterName=Datum Sub-Index
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x20000308
+PDOMapping=0
+
+[1601]
+;------------------------------------------------------------;
+; Define OD Mappings PLC TX PDO with COB 0x300               ;
+;   LMU RX Module Voltage Calibration                        ;
+;------------------------------------------------------------;
+ParameterName=PLC TX Calibration Mappings 0x300
+ObjectType=0x9
+SubNumber=3
+
+[1601sub0]
+ParameterName=NumberOfMappedApplicationObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[1601sub1]
+;-----------------------------------;
+; Byte 0 : Calibration Control      ;
+;-----------------------------------;
+ParameterName=Calibration Control
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=0x40500108
+PDOMapping=0
+
+[1601sub2]
+;-----------------------------------;
+; Byte 1-2 : Voltage Setpoint       ;
+;-----------------------------------;
+ParameterName=Voltage Setpoint
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0x40500210
+PDOMapping=0
+
+[1800]
+;------------------------------------------------------------;
+; Define PLC RX PDO with COB 0x180                           ;
+;   LMU TX Process Data                                      ;
+;------------------------------------------------------------;
+ParameterName=LMU TX Process Data 0x180
+ObjectType=0x9
+;DataType=0x0020
+SubNumber=6
+
+[1800sub0]
+ParameterName=NumberOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=2
+HighLimit=5
+
+[1800sub1]
+ParameterName=PDO COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+; PDO COB-ID
+; 001.1000.0000 = 0x180
+; 000.00XX.XXXX = NodeID
+DefaultValue=$NodeId+0x180
+PDOMapping=0
+
+[1800sub2]
+ParameterName=TransmissionType
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+; PDO is triggered in a cyclic manner after 1 SYNC message
+DefaultValue=1
+PDOMapping=0
+
+[1800sub3]
+ParameterName=InhibitTime
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1800sub4]
+ParameterName=Reserved
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+
+[1800sub5]
+ParameterName=EventTimer
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1801]
+;------------------------------------------------------------;
+; Define PLC RX PDO with COB 0x280                           ;
+;   LMU TX Status Data                                       ;
+;------------------------------------------------------------;
+ParameterName=LMU TX Status Data 0x280
+ObjectType=0x9
+;DataType=0x0020
+SubNumber=6
+
+[1801sub0]
+ParameterName=NumberOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=2
+HighLimit=5
+
+[1801sub1]
+ParameterName=PDO COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+;
+DefaultValue=$NodeId+0x280
+PDOMapping=0
+
+[1801sub2]
+ParameterName=TransmissionType
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+; PDO is triggered asynchronously by manufacturer specif event
+DefaultValue=253
+;DefaultValue=255
+PDOMapping=0
+
+[1801sub3]
+ParameterName=InhibitTime
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1801sub4]
+ParameterName=Reserved
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+
+[1801sub5]
+ParameterName=EventTimer
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1802]
+;------------------------------------------------------------;
+; Define PLC RX PDO with COB 0x380                           ;
+;   LMU TX Mapped Data                                       ;
+;------------------------------------------------------------;
+ParameterName=LMU TX Mapped Data 0x380
+ObjectType=0x9
+;DataType=0x0020
+SubNumber=6
+
+[1802sub0]
+ParameterName=NumberOfEntries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+LowLimit=2
+HighLimit=5
+
+[1802sub1]
+ParameterName=PDO COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=$NodeId+0x380
+PDOMapping=0
+
+[1802sub2]
+ParameterName=TransmissionType
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+; PDO is triggered asynchronously by manufacturer specif event
+DefaultValue=253
+;DefaultValue=255
+PDOMapping=0
+
+[1802sub3]
+ParameterName=InhibitTime
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1802sub4]
+ParameterName=Reserved
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=0
+
+[1802sub5]
+ParameterName=EventTimer
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[1a00]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x180              ;
+;   LMU TX Process Data                                      ;
+;------------------------------------------------------------;
+ParameterName=LMU TX Process Data Object Mappings 0x180
+ObjectType=0x9
+;DataType=0x0021
+SubNumber=6
+
+[1a00sub0]
+ParameterName=NumberOfMappedApplicationObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1a00sub1]
+;-----------------------------------;
+; Byte 0-1 : Pack Voltage           ;
+;-----------------------------------;
+ParameterName=Mapped Pack Voltage
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x41000110
+PDOMapping=0
+
+[1a00sub2]
+;-----------------------------------;
+; Byte 2-3 : Pack Current           ;
+;-----------------------------------;
+ParameterName=Mapped Pack Current
+ObjectType=0x7
+;datatype is uint32 0x41000210
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x41000210
+PDOMapping=0
+
+[1a00sub3]
+;-----------------------------------;
+; Byte 4 : Pack Pressure            ;
+;-----------------------------------;
+ParameterName=Mapped Pack Pressure
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x41000308
+PDOMapping=0
+
+[1a00sub4]
+;-----------------------------------;
+; Byte 5 : Pack Temperature         ;
+;-----------------------------------;
+ParameterName=Mapped Pack Temperature
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x41000408
+PDOMapping=0
+
+[1a00sub5]
+;-----------------------------------;
+; Byte 6-7 : Pack Status            ;
+;-----------------------------------;
+ParameterName=Mapped Pack Status
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40000010
+PDOMapping=0
+
+[1a01]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x280              ;
+;   LMU TX Status Data                                       ;
+;------------------------------------------------------------;
+ParameterName=LMU TX Status Data Object Mappings 0x280
+;objecttype = record
+ObjectType=0x9
+;datatype = mapping
+;DataType=0x0021
+SubNumber=5
+
+[1a01sub0]
+ParameterName=NumberOfMappedApplicationObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+
+[1a01sub1]
+;-----------------------------------;
+; Byte 0 : State of Charge          ;
+;-----------------------------------;
+ParameterName=Mapped State of Charge
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x41010008
+PDOMapping=0
+
+[1a01sub2]
+;-----------------------------------;
+; Byte 1 : Indicators               ;
+;-----------------------------------;
+ParameterName=Mapped LMU Indicators
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40110008
+PDOMapping=0
+
+[1a01sub3]
+;-----------------------------------;
+; Byte 2-3 : Module Voltage Low     ;
+;-----------------------------------;
+ParameterName=Mapped Module Voltage Low Flags
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40010110
+PDOMapping=0
+
+[1a01sub4]
+;-----------------------------------;
+; Byte 4-5 : Module Voltage High    ;
+;-----------------------------------;
+ParameterName=Mapped Module Voltage High Flags
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x40010210
+PDOMapping=0
+
+[1a02]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x380              ;
+;   LMU TX Mapped Data                                       ;
+;------------------------------------------------------------;
+ParameterName=LMU TX Mapped Data Object Mappings 0x380
+ObjectType=0x9
+;DataType=0x0021
+SubNumber=5
+
+[1a02sub0]
+ParameterName=NumberOfMappedApplicationObjects
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+
+[1a02sub1]
+;-----------------------------------;
+; Byte 0 : Reserved                 ;
+;-----------------------------------;
+ParameterName=Mapped Datum Reserved
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x20000108
+PDOMapping=0
+
+[1a02sub2]
+;-----------------------------------;
+; Byte 1-2 : Index                  ;
+;-----------------------------------;
+ParameterName=Mapped Datum Index
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x20000210
+PDOMapping=0
+
+[1a02sub3]
+;-----------------------------------;
+; Byte 3 : Sub Index                ;
+;-----------------------------------;
+ParameterName=Mapped Datum Sub-Index
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x20000308
+PDOMapping=0
+
+[1a02sub4]
+;-----------------------------------;
+; Byte 4-5 : Value                  ;
+;-----------------------------------;
+ParameterName=Mapped Datum Value
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x20000410
+PDOMapping=0
+
+[2000]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x380              ;
+;   LMU TX Mapped Data                                       ;
+; Byte   0 : Reserved   0x20000108
+; Byte 1-2 : Index      0x20000210
+; Byte   3 : Sub Index  0x20000308
+; Byte 4-7 : Value      0x20000500
+;------------------------------------------------------------;
+ParameterName=Datum Attributes
+ObjectType=0x8
+SubNumber=5
+
+[2000sub0]
+ParameterName=Number of Datum Attribute Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+
+[2000sub1]
+;-----------------------------------;
+; Byte   0 : Reserved   0x20000008  ;
+;-----------------------------------;
+ParameterName=Datum Reserved
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[2000sub2]
+;-----------------------------------;
+; Byte 1-2 : Index      0x20000210  ;
+;-----------------------------------;
+ParameterName=Datum Index
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+PDOMapping=1
+
+[2000sub3]
+;-----------------------------------;
+; Byte   3 : Sub Index  0x20000308  ;
+;-----------------------------------;
+ParameterName=Datum Sub-Index
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[2000sub4]
+;-----------------------------------;
+; Byte 4-5 : Value      0x20000410  ;
+;-----------------------------------;
+ParameterName=Datum Value
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+;[2000]
+;ParameterName=Datum Reserved
+;ObjectType=0x7
+;DataType=0x0005
+;AccessType=ro
+;DefaultValue=0
+;PDOMapping=1
+
+;[2001]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x380              ;
+;   LMU TX Mapped Data                                       ;
+; Byte 1-2 : Index      0x2001
+;------------------------------------------------------------;
+;ParameterName=Datum Index
+;ObjectType=0x7
+;DataType=0x0006
+;AccessType=ro
+;;DefaultValue=0
+;PDOMapping=1
+
+;[2011]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x380              ;
+;   LMU TX Mapped Data                                       ;
+; Byte   3 : Sub Index  0x2011
+;------------------------------------------------------------;
+;ParameterName=Datum Sub-Index
+;ObjectType=0x7
+;DataType=0x0005
+;AccessType=ro
+;DefaultValue=0
+;PDOMapping=1
+
+;[2100]
+;------------------------------------------------------------;
+; Object Mappings for PLC RX PDO with COB 0x380              ;
+;   LMU TX Mapped Data                                       ;
+; Byte 4-7 : Value      0x2100
+;------------------------------------------------------------;
+;ParameterName=Datum Value
+;ObjectType=0x7
+;DataType=0x0003
+;AccessType=ro
+;DefaultValue=0
+;PDOMapping=1
+
+[4000]
+;------------------------------------------------------------;
+; Object Mappings for PLC Recived PDO with COB 0x180         ;
+;   LMU Process Data                                         ;
+;     Byte 6-7 : Pack Status                                 ;
+;------------------------------------------------------------;
+ParameterName=Battery Status
+ObjectType=0x7
+DataType=0x0006
+;-----------------------------------;
+; Bit Defs:                         ;
+;   0 Voltage Low                   ;
+;   1 Voltage High                  ;
+;   2 Current Low                   ;
+;   3 Current high                  ;
+;   4 Temp. Low                     ;
+;   5 Temp. High                    ;
+;   6 Pressure Low                  ;
+;   7 Pressure high                 ;
+;   8 Module fault                    ;
+;   9 Power failure 3.3V            ;
+;  10 Power failure 5V              ;
+;  11 Power failure 12V             ;
+;  12 Charging Complete             ;
+;  13 (Reserved)                    ;
+;  14 Stale Time Update             ;
+;  15 Node Guard                    ;
+;-----------------------------------;
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[4001]
+;------------------------------------------------------------;
+; Object for PLC Recived PDO with COB 0x280                  ;
+;   LMU Mapped Data                                          ;
+;     Byte 2-3 : Module Voltage Low                          ;
+;     Byte 4-5 : Module Voltage High                         ;
+;Note: this could be done with DataTypes of                  ;
+;      0x0001 (1 bit booleans) but there would be 32 values  ;
+;------------------------------------------------------------;
+ParameterName=Module Status
+ObjectType=0x8
+SubNumber=3
+
+[4001sub0]
+ParameterName=Number of Module Status Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[4001sub1]
+;-----------------------------------;
+; Byte 2-3 : Module Voltage Low     ;
+;-----------------------------------;
+ParameterName=Voltage Low Status Set
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[4001sub2]
+;-----------------------------------;
+; Byte 4-5 : Module Voltage High    ;
+;-----------------------------------;
+ParameterName=Voltage High Status Set
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[4010]
+;------------------------------------------------------------;
+; Object for PLC TX PDO with COB 0x200                       ;
+;   LMU RX System Request                                    ;
+;     Byte 6-7 : Pack Status                                 ;
+;------------------------------------------------------------;
+ParameterName=Reset Flags
+ObjectType=0x7
+DataType=0x0005
+;-----------------------------------;
+; Bit Defs:                         ;
+;   0 Voltage Low                   ;
+;   1 Voltage High                  ;
+;   2 Current Low                   ;
+;   3 Current High                  ;
+;   4 Temperature Low               ;
+;   5 Temperature High              ;
+;   6 Pressure Low                  ;
+;   7 Pressure Hight                ;
+;-----------------------------------;
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[4011]
+;------------------------------------------------------------;
+; Object for PLC TX PDO with COB 0x200                       ;
+;   LMU RX System Request                                    ;
+;     Byte 1 : Indicators                                    ;
+; Object for PLC RX PDO with COB 0x280                       ;
+;   LMU TX Status Data                                       ;
+;     Byte 1 : Indicators                                    ;
+;------------------------------------------------------------;
+ParameterName=Indicators
+ObjectType=0x7
+DataType=0x0005
+;-----------------------------------;
+; Bit Defs:                         ;
+;     LMU         PLC               ;
+;-----------------------------------;
+;   0 DIP 1       Running           ;
+;   1 DIP 2       Charge            ;
+;   2 (Reserved)  Forced Run        ;
+;   3 (Reserved)  Charging Complete ;
+;   4 (Reserved)  SOH < 80%         ;
+;   5 (Reserved)  Contactors Engaged;
+;   6 (Reserved)  Request Status PDO;
+;   7 (Reserved)  Request Snapshot  ;
+;-----------------------------------;
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[4050]
+;------------------------------------------------------------;
+; Objects PLC TX PDO with COB 0x300                          ;
+;   LMU RX Module Voltage Calibration                        ;
+;     Byte 0 : Calibration Control                           ;
+;     Byte 1-2 : Voltage Setpoint                            ;
+;------------------------------------------------------------;
+ParameterName=Calibration
+ObjectType=0x8
+SubNumber=3
+
+[4050sub0]
+ParameterName=Number of Calibration Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=2
+PDOMapping=0
+
+[4050sub1]
+;-----------------------------------;
+; Byte 0 : Calibration Control      ;
+;-----------------------------------;
+ParameterName=Calibration Control
+ObjectType=0x7
+DataType=0x0005
+;-----------------------------------;
+; Bit Defs:                         ;
+;   0 setpoint low voltage          ;
+;   1 setpoint high voltage         ;
+;   2 calculate voltages            ;
+;   3 commit calibration            ;
+;-----------------------------------;
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[4050sub2]
+;-----------------------------------;
+; Byte 1-2 : Voltage Setpoint       ;
+;-----------------------------------;
+ParameterName=Setpoint Voltage
+ObjectType=0x7
+DataType=0x0006
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+[4100]
+;------------------------------------------------------------;
+; Object Mappings for PLC Recived PDO with COB 0x180         ;
+;   LMU Process Data                                         ;
+;     Byte 0-1 : Pack Voltage                                ;
+;     Byte 2-3 : Pack Current                                ;
+;     Byte   4 : Pack Pressure                               ;
+;     Byte   5 : Pack Temperature                            ;
+;------------------------------------------------------------;
+ParameterName=Battery Attributes
+ObjectType=0x8
+SubNumber=5
+
+[4100sub0]
+ParameterName=Number of Battery Attribute Elements
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+
+[4100sub1]
+;-----------------------------------;
+; Byte 0-1 : Pack Voltage           ;
+;-----------------------------------;
+ParameterName=Battery Voltage
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[4100sub2]
+;-----------------------------------;
+; Byte 2-3 : Pack Current           ;
+;-----------------------------------;
+ParameterName=Battery Current
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
+[4100sub3]
+;-----------------------------------;
+; Byte   4 : Pack Pressure          ;
+;-----------------------------------;
+ParameterName=Battery Pressure
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[4100sub4]
+;-----------------------------------;
+; Byte   5 : Pack Temperature       ;
+;-----------------------------------;
+ParameterName=Battery Temperature
+ObjectType=0x7
+DataType=0x0002
+AccessType=ro
+PDOMapping=1
+
+[4101]
+;------------------------------------------------------------;
+; Object Mappings for PLC Recived PDO with COB 0x280         ;
+;   LMU Mapped Data                                          ;
+;     Byte 0 : State of Charge                               ;
+;------------------------------------------------------------;
+ParameterName=State of Charge (SoC)
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=0
+PDOMapping=0
+
+;------------------------------------------------------------------------------
+;;[4200]
+;;ParameterName=Battery Voltage
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4200sub0]
+;;ParameterName=Number of Battery Voltage Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4200sub1]
+;;ParameterName=Battery Voltage Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub2]
+;;ParameterName=Battery Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub3]
+;;ParameterName=Battery Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub4]
+;;ParameterName=Battery Voltage Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub5]
+;;ParameterName=Battery Voltage Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub6]
+;;ParameterName=Battery Voltage High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub7]
+;;ParameterName=Battery Voltage High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub8]
+;;ParameterName=Battery Voltage Slope (m)
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4200sub9]
+;;ParameterName=Battery Voltage Offset
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210]
+;;ParameterName=Battery Pressure
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4210sub0]
+;;ParameterName=Number of Battery Pressure Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4210sub1]
+;;ParameterName=Battery Pressure Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub2]
+;;ParameterName=Battery Pressure Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub3]
+;;ParameterName=Battery Pressure Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub4]
+;;ParameterName=Battery Pressure Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub5]
+;;ParameterName=Battery Pressure Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub6]
+;;ParameterName=Battery Pressure High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub7]
+;;ParameterName=Battery Pressure High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub8]
+;;ParameterName=Battery Pressure High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4210sub9]
+;;ParameterName=Battery Pressure High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4211]
+;;ParameterName=Battery Temperature
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4211sub0]
+;;ParameterName=Number of Battery Temperature Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4211sub1]
+;;ParameterName=Battery Temperature Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub2]
+;;ParameterName=Battery Temperature Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub3]
+;;ParameterName=Battery Temperature Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub4]
+;;ParameterName=Battery Temperature Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub5]
+;;ParameterName=Battery Temperature Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub6]
+;;ParameterName=Battery Temperature High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub7]
+;;ParameterName=Battery Temperature High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub8]
+;;ParameterName=Battery Temperature High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4211sub9]
+;;ParameterName=Battery Temperature High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4212]
+;;ParameterName=Battery Current A
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4212sub0]
+;;ParameterName=Number of Battery Current A Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4212sub1]
+;;ParameterName=Battery Current A Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub2]
+;;ParameterName=Battery Current A Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub3]
+;;ParameterName=Battery Current A Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub4]
+;;ParameterName=Battery Current A Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub5]
+;;ParameterName=Battery Current A Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub6]
+;;ParameterName=Battery Current A High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub7]
+;;ParameterName=Battery Current A High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub8]
+;;ParameterName=Battery Current A High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4212sub9]
+;;ParameterName=Battery Current A High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4213]
+;;ParameterName=Battery Current B
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4213sub0]
+;;ParameterName=Number of Battery Current B Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4213sub1]
+;;ParameterName=Battery Current B Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub2]
+;;ParameterName=Battery Current B Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub3]
+;;ParameterName=Battery Current B Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub4]
+;;ParameterName=Battery Current B Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub5]
+;;ParameterName=Battery Current B Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub6]
+;;ParameterName=Battery Current B High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub7]
+;;ParameterName=Battery Current B High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub8]
+;;ParameterName=Battery Current B High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4213sub9]
+;;ParameterName=Battery Current B High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4214]
+;;ParameterName=Battery Current Ref
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4214sub0]
+;;ParameterName=Number of Battery Current Ref Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4214sub1]
+;;ParameterName=Battery Current Ref Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub2]
+;;ParameterName=Battery Current Ref Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub3]
+;;ParameterName=Battery Current Ref Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub4]
+;;ParameterName=Battery Current Ref Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub5]
+;;ParameterName=Battery Current Ref Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub6]
+;;ParameterName=Battery Current Ref High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub7]
+;;ParameterName=Battery Current Ref High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub8]
+;;ParameterName=Battery Current Ref High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4214sub9]
+;;ParameterName=Battery Current Ref High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4215]
+;;ParameterName=Voltage Ref
+;;ObjectType=0x9
+;;SubNumber=10
+;;
+;;[4215sub0]
+;;ParameterName=Number of Voltage Ref Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=7
+;;PDOMapping=0
+;;
+;;[4215sub1]
+;;ParameterName=Voltage Ref Average
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub2]
+;;ParameterName=Voltage Ref Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub3]
+;;ParameterName=Voltage Ref Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub4]
+;;ParameterName=Voltage Ref Low Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub5]
+;;ParameterName=Voltage Ref Low Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub6]
+;;ParameterName=Voltage Ref High Limit
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub7]
+;;ParameterName=Voltage Ref High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub8]
+;;ParameterName=Voltage Ref High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4215sub9]
+;;ParameterName=Voltage Ref High Count
+;;ObjectType=0x7
+;;DataType=0x0007
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4401]
+;;ParameterName=Module Voltages
+;;ObjectType=0x8
+;;SubNumber=11
+;;
+;;[4401sub0]
+;;ParameterName=Number of Module Voltage Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=10
+;;PDOMapping=0
+;;
+;;[4401sub1]
+;;ParameterName=Module 1 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub2]
+;;ParameterName=Module 2 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub3]
+;;ParameterName=Module 3 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub4]
+;;ParameterName=Module 4 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub5]
+;;ParameterName=Module 5 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub6]
+;;ParameterName=Module 6 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=rw
+;;PDOMapping=1
+;;
+;;[4401sub7]
+;;ParameterName=Module 7 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub8]
+;;ParameterName=Module 8 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub9]
+;;ParameterName=Module 9 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4401sub10]
+;;ParameterName=Module 10 Voltage
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4402]
+;;ParameterName=Module Voltage Minimums
+;;ObjectType=0x8
+;;SubNumber=11
+;;
+;;[4402sub0]
+;;ParameterName=Number of Module Voltage Minimum Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=10
+;;PDOMapping=0
+;;
+;;[4402sub1]
+;;ParameterName=Module 1 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub2]
+;;ParameterName=Module 2 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub3]
+;;ParameterName=Module 3 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub4]
+;;ParameterName=Module 4 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub5]
+;;ParameterName=Module 5 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub6]
+;;ParameterName=Module 6 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=rw
+;;PDOMapping=1
+;;
+;;[4402sub7]
+;;ParameterName=Module 7 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub8]
+;;ParameterName=Module 8 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub9]
+;;ParameterName=Module 9 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4402sub10]
+;;ParameterName=Module 10 Voltage Minimum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;
+;;[4403]
+;;ParameterName=Module Voltage Maximums
+;;ObjectType=0x8
+;;SubNumber=11
+;;
+;;[4403sub0]
+;;ParameterName=Number of Module Voltage Maximum Elements
+;;ObjectType=0x7
+;;DataType=0x0005
+;;AccessType=ro
+;;DefaultValue=10
+;;PDOMapping=0
+;;
+;;[4403sub1]
+;;ParameterName=Module 1 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub2]
+;;ParameterName=Module 2 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub3]
+;;ParameterName=Module 3 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub4]
+;;ParameterName=Module 4 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub5]
+;;ParameterName=Module 5 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub6]
+;;ParameterName=Module 6 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=rw
+;;PDOMapping=1
+;;
+;;[4403sub7]
+;;ParameterName=Module 7 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub8]
+;;ParameterName=Module 8 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub9]
+;;ParameterName=Module 9 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+;;
+;;[4403sub10]
+;;ParameterName=Module 10 Voltage Maximum
+;;ObjectType=0x7
+;;DataType=0x0003
+;;AccessType=ro
+;;PDOMapping=1
+[Comments]
+Lines=0
+
+;--------------------------------------------------------------------------------------------------------------------------------
+; 306_v01030003.pdf does a terible job of explaining this section. The example even has an error...  Thank goodness for the web..
+; Once again, the CiA specs are garbage, for better info look at http://ms10.at.tut.by/eds.html
+;
+;DataTypes:
+;0x0001= 1 - 1 bit boolean
+;0x0002= 1 - 8 bit signed integer
+;0x0003= 1 - 16 bit signed integer
+;0x0004= 1 - 32 bit signed integer
+;0x0005= 1 - 8 bit unsigned integer
+;0x0006= 1 - 16 bit unsigned integer
+;0x0007= 1 - 32 bit unsigned integerF1401
+;0x0008= 1 - single precision floating point
+;0x0009= 1 - visible string
+;0x000A= 1 - octet string
+;0x000B= 0 - date
+;0x000C= 0 - time of day
+;0x000D= 0 - time difference
+;0x000E= 0 - bit string
+;0x000F= 0 - domain
+;0x0020= 1 - PDO CommPar
+;0x0021= 1 - PDO mapping
+;0x0022= 1 - SDO parameter
+;
+;ObjectTypes:
+;0x07 = var
+;0x08 = array
+;0x09 = record
+;
+;AccessTypes:
+;const : read-only, will not change
+;ro : read-only, can change
+;wo : write-only
+;rw : read/writeable
+;--------------------------------------------------------------------------------------------------------------------------------
+
+[DeviceInfo]
+VendorName=NILAR Inc.
+ProductName=LMU.20131108.140422j
+;shall provide the unique vendor ID according to identity object sub-index 01h (Unsigned32)
+VendorNumber=455341
+;shall provide the product number according to identity object sub-index 02h (Unsigned32)
+ProductNumber=10001
+;shall provide the product revision number according to identity object sub- index 03h (Unsigned32)
+RevisionNumber=0x00010000
+;OrderCode is 245 characters max
+OrderCode=10001
+BaudRate_10=0
+BaudRate_20=0
+BaudRate_50=0
+BaudRate_125=1
+BaudRate_250=1
+BaudRate_500=1
+BaudRate_800=1
+BaudRate_1000=0
+SimpleBootUpMaster=0
+;The LMU.20131108 is a slave unit
+SimpleBootUpSlave=1
+;shall provide the granularity allowed for the mapping on this device
+;most of the existing devices support a granularity of 8 (Unsigned8; 0 - mapping not modifiable, 1-64 granularity)
+Granularity=1
+;according to /CiA302/ this entry shall indicate the facility of dynamic variable generation.
+;If the value is unequal to 0, the additional section DynamicChannels exists. Details are given in /CiA302/ and /CiA405/.
+DynamicChannelsSupported=0
+CompactPDO=0
+;according to /CiA301/ Annex A this entry shall indicate the facility of multiplexed PDOs.
+;(Boolean, 0 = not supported, 1 = supported) Details are given in /CiA301/
+GroupMessaging=0
+;number of supported receive PDOs. (Unsigned16)
+NrOfRXPDO=2
+;number of supported transmit PDOs. (Unsigned16)
+NrOfTXPDO=2
+;LSS functionality is supported (Boolean, 0 = not supported, 1 = supported)
+LSS_Supported=0
+
+[DummyUsage]
+Dummy0001=1
+Dummy0002=1
+Dummy0003=1
+Dummy0004=1
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[FileInfo]
+FileName=LMU.eds
+FileVersion=1
+FileRevision=00
+EDSVersion=4.01
+Description=Nilar 120V LMU.4.20131108
+CreationTime=12:47PM
+CreationDate=04-01-2013
+CreatedBy=Nilar
+ModificationTime=02:08 PM
+ModificationDate=04-22-2014
+ModifiedBy=Richard Howlett
+
+[MandatoryObjects]
+SupportedObjects=5
+1=0x1000
+2=0x1001
+3=0x100c
+4=0x100d
+5=0x1018
+
+[ManufacturerObjects]
+SupportedObjects=8
+1=0x4000
+2=0x4001
+3=0x4010
+4=0x4011
+5=0x4050
+;6=0x4051
+;7=0x4052
+6=0x4100
+7=0x4101
+8=0x2000
+;9=0x2001
+;10=0x2011
+;11=0x2100
+;**********************************************************************************
+;these might not work and will require the use of a 3rd PDO using the same objects*
+;**********************************************************************************
+;10=0x4200
+;11=0x4210
+;12=0x4211
+;13=0x4212
+;14=0x4213
+;15=0x4214
+;16=0x4215
+;17=0x4401
+;18=0x4402
+;19=0x4403
+
+[OptionalObjects]
+SupportedObjects=12
+
+1=0x1008
+2=0x1017
+3=0x1400
+4=0x1401
+5=0x1600
+6=0x1601
+7=0x1800
+8=0x1801
+9=0x1802
+10=0x1A00
+11=0x1A01
+12=0x1A02
