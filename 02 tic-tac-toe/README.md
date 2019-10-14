@@ -5,6 +5,72 @@ Diagonal winner:
 
 ## 013c
 Vertical winner:
+```python
+game = [[2, 0, 1], [2, 0, 0], [2, 2, 0], ]
+
+for row in game:
+    print(row[0])
+```
+Prints:
+```
+2
+2
+2
+```
+Similarly to 013b, we use `count` to return he number of times the row's first element appears in **check**. This value is compared to the length of **check**, a list that was created using `apend`, effectively creating a row out of a column:
+```python
+game = [[2, 0, 1], [2, 0, 0], [2, 2, 0], ]
+
+check = []
+
+for row in game:
+    check.append(row[0])
+
+if check.count(check[0]) == len(check) and check[0] != 0:
+    print("winner!")
+```
+Prints:
+```
+winner!
+```
+Observe that the previous code only checks the first column. In order to go through the entire board we do like this:
+```python
+game = [[2, 0, 1], [0, 0, 1], [2, 2, 1], ]
+
+columns = [0, 1, 2]
+
+for col in columns:
+    check = []
+
+    for row in game:
+        check.append(row[col])
+
+    if check.count(check[0]) == len(check) and check[0] != 0:
+        print("winner!")
+```
+Prints:
+```
+winner!
+```
+This solution works but the number of columns are hardcoded. A better way is to use `range` which returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number. So we change the outer for-loop to:
+```python
+game = [[2, 0, 1], [0, 0, 1], [2, 2, 1], ]
+
+for col in range(len(game)):
+    check = []
+
+    for row in game:
+        check.append(row[col])
+
+    if check.count(check[0]) == len(check) and check[0] != 0:
+        print("winner!")
+```
+Prints:
+```
+winner!
+```
+- [Python list count() method](https://www.w3schools.com/python/ref_list_count.asp)
+- [Python range() function](https://www.w3schools.com/python/ref_func_range.asp)
 
 ## 013b
 Horizontal winner:
@@ -26,7 +92,7 @@ Prints:
 ```
 winner!
 ```
-This works but it's hardcoded. The right way to do it is doing it dynamically (and with less code) so the same code works for different board sizes. In the following example we will use the built-in functions `count` to count the number of appareances of the row's first element and compare it against the length of the row using `len`:
+This works but it's hardcoded. The right way to do it is doing it dynamically (and with less code) so the same code works for different board sizes. In the following example we will use the built-in functions `count` to count the number of appearances of the row's first element and compare it against the length of the row using `len`:
 ```python
 game = [[1, 1, 1], [0, 2, 0], [2, 2, 0], ]
 
