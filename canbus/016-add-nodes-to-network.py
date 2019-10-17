@@ -11,7 +11,4 @@ time.sleep(0.05)
 for node_id in network.scanner.nodes:
     nodes_in_network.append(node_id)
 
-for n in nodes_in_network:
-    network.add_node(n)
-
 network.disconnect()

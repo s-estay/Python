@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "welcome"
+python3 016-add-nodes-to-network.py
