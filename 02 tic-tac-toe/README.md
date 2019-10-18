@@ -1,7 +1,104 @@
 # tic tac toe game
 
 ## 013d
-Diagonal winner:
+Diagonal winner. The following is a hardcoded solution to understand the pattern that results in a diagonal win:
+```python
+game = [[2, 0, 2], [1, 2, 0], [2, 2, 1]]
+
+if game[0][0] == game[1][1] == game[2][2]:
+    print("winner!")
+if game[2][0] == game[1][1] == game[0][2]:
+    print("winner!")
+```
+Prints:
+```
+winner!
+```
+Check left-to-right diagonal win, dynamically:
+```python
+game = [[1, 0, 2], [1, 1, 0], [2, 2, 1]]
+
+diags = []
+for ix in range(len(game)):
+    diags.append(game[ix][ix])
+print(diags)
+```
+Prints:
+```
+[1, 1, 1]
+```
+To check right-to-left diagonal win, dynamically, we will use built-in function `reversed`:
+```python
+game = [[1, 0, 2], [1, 1, 0], [2, 2, 1]]
+
+for i in reversed(range(len(game))):
+    print(i)
+```
+Prints:
+```
+2
+1
+0
+```
+Create iterable elements **cols** and **rows**. Observe that `reverse` returns an iterator, not a sequence, so we need to converted it to a list:
+```python
+game = [[1, 0, 2], [1, 1, 0], [2, 2, 1]]
+
+cols = list(reversed(range(len(game))))
+rows = range(len(game))
+
+for idx in rows:
+    print(idx, cols[idx])
+```
+Prints:
+```
+0 2
+1 1
+2 0
+```
+We get the same result with the built-in function `zip`, which make an iterator that aggregates elements from each of the iterables. Observe that we don't need to convert reversed **cols** to a list when using `zip`:
+```python
+game = [[1, 0, 2], [1, 1, 0], [2, 2, 1]]
+
+cols = reversed(range(len(game)))
+rows = range(len(game))
+
+for col, row in zip(cols, rows):
+    print(col, row)
+```
+Prints:
+```
+0 2
+1 1
+2 0
+```
+Another way to get the same result (writing a lot less code) is by using built-in function `enumerate`:
+```python
+game = [[1, 0, 2], [1, 1, 0], [2, 2, 1]]
+
+for col, row in enumerate(reversed(range(len(game)))):
+    print(col, row)
+```
+Prints:
+```
+0 2
+1 1
+2 0
+```
+Finally, right-to-left diagonal is given by:
+```python
+game = [[1, 0, 2], [1, 1, 0], [2, 2, 1]]
+
+diags = []
+for col, row in enumerate(reversed(range(len(game)))):
+    diags.append(game[row][col])
+
+print(diags)
+```
+Prints:
+```
+[2, 1, 2]
+```
 
 ## 013c
 Vertical winner:
@@ -17,7 +114,7 @@ Prints:
 2
 2
 ```
-Similarly to 013b, we use `count` to return he number of times the row's first element appears in **check**. This value is compared to the length of **check**, a list that was created using `apend`, effectively creating a row out of a column:
+Similarly to [013b](https://github.com/s-estay/Python/tree/master/02%20tic-tac-toe#013b), we use `count` to return he number of times the row's first element appears in **check**. This value is compared to the length of **check**, a list that was created using `apend`, effectively creating a row out of a column:
 ```python
 game = [[2, 0, 1], [2, 0, 0], [2, 2, 0], ]
 
