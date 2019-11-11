@@ -1,9 +1,6 @@
 import itertools
 
 
-game = [[1, 0, 2], [1, 1, 2], [2, 2, 1], ]
-
-
 def win(current_game):
 
     # horizontal
