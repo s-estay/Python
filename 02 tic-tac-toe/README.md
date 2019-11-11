@@ -1,5 +1,162 @@
 # tic tac toe game
 
+## 017
+Beta:
+```python
+import itertools
+
+game = [[1, 0, 2], [1, 1, 2], [2, 2, 1], ]
+
+def win(current_game):
+
+    # horizontal
+    for row in game:
+        if row.count(row[0]) == len(row) and row[0] != 0:
+            print(f"Player {row[0]} is the winner horizontally")
+
+    # diagonal
+    diags = []
+    for col, row in enumerate(reversed(range(len(game)))):
+        diags.append(game[row][col])
+    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
+        print(f"Player {diags[0]} is the winner diagonally (/)")
+
+    diags = []
+    for ix in range(len(game)):
+        diags.append(game[ix][ix])
+    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
+        print(f"Player {diags[0]} is the winner diagonally (\\)")
+
+    # vertical
+    for col in range(len(game)):
+        check = []
+
+        for row in game:
+            check.append(row[col])
+
+        if check.count(check[0]) == len(check) and check[0] != 0:
+            print(f"Player {check[0]} is the winner vertically")
+
+def game_board(game_map, player=0, row=0, column=0, just_display=False):
+    try:
+        print("   0  1  2")
+        if not just_display:
+            game_map[row][column] = player
+        for count, row in enumerate(game_map):
+            print(count, row)
+        return game_map
+    except IndexError as e:
+        print("Error: make sure you input row/column as 0, 1 or 2?", e)
+    except Exception as e:
+        print("Something went very wrong,", e)
+
+play = True
+players = [1, 2]
+while play:
+    game = [[0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]
+
+    game_won = False
+    game = game_board(game, just_display=True)
+    player_choice = itertools.cycle([1, 2])
+    while not game_won:
+        current_player = next(player_choice)
+        print(f"Current Player: {current_player}")
+        column_choice = int(input("What column do you want to play? (0, 1, 2): "))
+        row_choice = int(input("What row do you want to play? (0, 1, 2): "))
+        game = game_board(game, current_player, row_choice, column_choice)
+
+```
+
+## 016
+Iterable: a thing we can iterate over.  
+Iterator: a special object with next() method.
+Further explanation [here](https://youtu.be/au8xkSQW1kE?start=1362).
+
+## 015
+Iterate between players 1 and 2. We first iterate between 0 and 1:
+```python
+players = [1, 0]
+choice = 1
+
+for i in range(10):
+    current_player = choice
+    print(current_player)
+    choice = players[choice]
+```
+Prints:
+```
+1
+0
+1
+0
+1
+0
+1
+0
+1
+0
+```
+Then simply add 1 to iterate between 1 and 2:
+```python
+players = [1, 0]
+choice = 1
+
+for i in range(10):
+    current_player = choice + 1
+    print(current_player)
+    choice = players[choice]
+```
+If we want to achieve the same result in a more condensed way, we can use `itertools` to iterate between two values in a list:
+```python
+import itertools
+
+player_choice = itertools.cycle([1, 2])
+
+for i in range(10):
+    print(next(player_choice))
+```
+
+## 014
+Bringing things together. Print what kind of winner using [f-Strings](https://realpython.com/python-f-strings/):
+```python
+game = [[0, 0, 0], [0, 0, 0], [0, 0, 0], ]
+
+def win(current_game):
+
+    # horizontal
+    for row in game:
+        if row.count(row[0]) == len(row) and row[0] != 0:
+            print(f"Player {row[0]} is the winner horizontally")
+
+    # diagonal
+    diags = []
+    for col, row in enumerate(reversed(range(len(game)))):
+        diags.append(game[row][col])
+    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
+        print(f"Player {diags[0]} is the winner diagonally (/)")
+
+    diags = []
+    for ix in range(len(game)):
+        diags.append(game[ix][ix])
+    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
+        print(f"Player {diags[0]} is the winner diagonally (\\)")
+
+    # vertical
+    for col in range(len(game)):
+        check = []
+
+        for row in game:
+            check.append(row[col])
+
+        if check.count(check[0]) == len(check) and check[0] != 0:
+            print(f"Player {check[0]} is the winner vertically")
+
+win(game)
+```
+To check an horizontal win use: `game = [[1, 0, 2], [2, 2, 2], [1, 2, 1], ]`. To check an vertical win use: `game = [[1, 0, 2], [1, 2, 2], [1, 2, 1], ]`. To check a vertical win use: `game = [[1, 0, 2], [1, 1, 2], [2, 2, 1], ]`.
+
 ## 013d
 Diagonal winner. The following is a hardcoded solution to understand the pattern that results in a diagonal win:
 ```python
