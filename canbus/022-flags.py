@@ -32,26 +32,42 @@ def read():
     #print(all_data)
 
 
-# def flag_node(a):
-#     for n in nodes:
-#         if "node"+str(a) == n:
-#             pack_status_16bits = nodes["node"+str(a)].sdo[0x4000].raw
-#             return '{0:016b}'.format(pack_status_16bits)
-#             break
-#         elif "node"+str(a) != n:
-#             return "not found"
+def flag_node(node_id):
+    if "node" + str(node_id) in all_data:
+        pack_status_16bits = nodes["node" + str(node_id)].sdo[0x4000].raw
+        return '{0:016b}'.format(pack_status_16bits)
 
 
-def data_node(a, b):
-    if "node"+str(a) in all_data:
-        print(all_data.get("node"+str(a)).get(b))
+def flag_all_nodes():
+    flag_list = []
+    for node_id in nodes_in_network:
+        pack_status_16bits = nodes["node" + str(node_id)].sdo[0x4000].raw
+        flag_list.append('{0:016b}'.format(pack_status_16bits))
+    return flag_list
+
+
+def data_node(node_id, value):
+    if "node"+str(node_id) in all_data:
+        return all_data.get("node"+str(node_id)).get(value)
+    else:
+        print("no")
+
+
+def data_all_nodes(value):
+    value_list = []
+    for n in nodes_in_network:
+        value_list.append(all_data.get("node"+str(n)).get(value))
+    return value_list
 
 
 setup()
 read()
-data_node(1, "pack_voltage")
-data_node(2, "pack_current")
-data_node(4, "pack_temperature")
+
+
+print(data_node(4, "pack_voltage"))
+print(data_all_nodes("pack_temperature"))
+print(flag_node(2))
+print(flag_all_nodes())
 
 
 ################################################################################
@@ -74,7 +90,7 @@ data_node(4, "pack_temperature")
 
 # for n in nodes:
 
-#
+
 #     for b in pack_status_16bits:
 #         if pack_status_16bits[15]:
 #             module_low = True
