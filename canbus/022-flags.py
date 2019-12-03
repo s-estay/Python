@@ -1,9 +1,63 @@
 import canopen
 import time
+import collections
 
 nodes = {}
 nodes_in_network = []
 all_data = {}
+
+flags = collections.OrderedDict()
+flags["module low"] = False
+flags["module low"] = False
+flags["module high"] = False
+flags["current low"] = False
+flags["current high"] = False
+flags["temperature low"] = False
+flags["temperature high"] = False
+flags["pressure low"] = False
+flags["pressure high"] = False
+flags["module fault"] = False
+flags["sensor fault"] = False
+flags["pack low"] = False
+flags["pack high"] = False
+flags["internal error"] = False
+flags["power save mode"] = False
+flags["startup"] = False
+flags["heartbeat"] = False
+
+
+# resets in imu
+# def reset_flags(node_id)
+
+# to do
+# set to true if 1
+def set_flags():
+    print(flag_node(node_id))
+    for i in range(len(flag_node(node_id))):
+        if flag_node(node_id)[i] == "1":
+            c = list(flags)[15 - i]
+            flags[c] = True
+            # print(c)
+    return flags
+
+
+def check_flags(node_id):
+    print(flag_node(node_id))
+    for i in range(len(flag_node(node_id))):
+        if flag_node(node_id)[i] == "1":
+            c = list(flags)[15 - i]
+            flags[c] = True
+            print(c)
+    return flags
+
+
+# # change to check if true
+# def check_flags(node_id):
+#     print(flag_node(node_id))
+#     for i in range(len(flag_node(node_id))):
+#         if flag_node(node_id)[i] == "1":
+#             c = list(flags)[15 - i]
+#             print(c)
 
 
 def setup():
@@ -29,7 +83,6 @@ def read():
         all_data.update(pack_data)
 
     print('Nodes in network: ', nodes_in_network)
-    #print(all_data)
 
 
 def flag_node(node_id):
@@ -49,8 +102,6 @@ def flag_all_nodes():
 def data_node(node_id, value):
     if "node"+str(node_id) in all_data:
         return all_data.get("node"+str(node_id)).get(value)
-    else:
-        print("no")
 
 
 def data_all_nodes(value):
@@ -63,12 +114,14 @@ def data_all_nodes(value):
 setup()
 read()
 
+################################################################################
 
-print(data_node(4, "pack_voltage"))
-print(data_all_nodes("pack_temperature"))
-print(flag_node(2))
-print(flag_all_nodes())
-
+# print(all_data)
+# print(data_node(4, "pack_voltage"))
+# print(data_all_nodes("pack_temperature"))
+# print(flag_node(2))
+# print(flag_all_nodes())
+print(check_flags(2))
 
 ################################################################################
 
