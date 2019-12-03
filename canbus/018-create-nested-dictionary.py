@@ -13,15 +13,15 @@ network.scanner.search()
 time.sleep(0.05)
 for node_id in network.scanner.nodes:
     nodes_in_network.append(node_id)
-    nodes["node{0}".format(node_id)] = (canopen.RemoteNode(node_id, 'lmu-dictionary.eds'))
+    nodes["node{0}".format(node_id)] = (canopen.RemoteNode(node_id, 'imu-dictionary.eds'))
     network.add_node(nodes["node{0}".format(node_id)])
 
-    network.send_message(node_id + 0x700, [0x00])
+    network.send_message(0x700 + node_id, [0x00])
     network.send_message(0x00, [0x01, node_id])
-    network.send_message(node_id + 0x200, [0x00, 0x03, 0x01, 0xA0, 0x00])
+    network.send_message(0x200 + node_id, [0x00, 0x03, 0x01, 0xA0, 0x00])
 
 for x in nodes:
-    signed_pack_temperature = nodes[x].sdo[0x4100][4].raw
+    signed_pack_temperature = nodes[x].sdo[0x4100][3].raw
     pack_temperature = round((100 / 255) * (signed_pack_temperature + 128) - 25, 2)
     pack_current = nodes[x].sdo[0x4100][2].raw
     pack_voltage = nodes[x].sdo[0x4100][1].raw
@@ -30,8 +30,10 @@ for x in nodes:
     # print(x, pack_voltage / 100, 'V')
 
 print(all_data)
-print('found nodes', nodes_in_network)
-print(all_data.get("node17").get("pack_voltage"))
+print('Nodes in network: ', nodes_in_network)
+print(all_data.get("node4").get("pack_voltage"))
+print(all_data.get("node2").get("pack_current"))
+print(all_data.get("node1").get("pack_temperature"))
 
 network.disconnect()
 

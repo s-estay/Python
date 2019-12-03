@@ -10,7 +10,7 @@ def setup():
     global nodes_in_network
 
     network = canopen.Network()
-    network.connect(channel='/dev/ttyACM0', bustype='slcan', bitrate=250000)
+    network.connect(channel='/dev/ttyACM1', bustype='slcan', bitrate=250000)
 
     nodes_in_network = []
     nodes = {}
@@ -19,7 +19,7 @@ def setup():
     time.sleep(0.05)
     for node_id in network.scanner.nodes:
         nodes_in_network.append(node_id)
-        nodes["node{0}".format(node_id)] = (canopen.RemoteNode(node_id, 'lmu-dictionary.eds'))
+        nodes["node{0}".format(node_id)] = (canopen.RemoteNode(node_id, 'imu-dictionary.eds'))
         network.add_node(nodes["node{0}".format(node_id)])
 
         network.send_message(node_id + 0x700, [0x00])
