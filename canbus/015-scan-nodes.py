@@ -2,7 +2,7 @@ import canopen
 import time
 
 network = canopen.Network()
-network.connect(channel='/dev/ttyACM2', bustype='slcan', bitrate=250000)
+network.connect(channel='/dev/ttyACM0', bustype='slcan', bitrate=250000)
 
 network.scanner.search()
 time.sleep(0.05)

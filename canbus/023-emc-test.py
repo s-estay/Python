@@ -1,4 +1,5 @@
 import canopen
+from datetime import datetime
 
 network = canopen.Network()
 network.connect(channel='/dev/ttyACM0', bustype='slcan', bitrate=250000)
@@ -21,6 +22,9 @@ network.send_message(0x201, [0x00, 0x03, 0x01, 0xA0, 0x00])
 network.send_message(0x209, [0x00, 0x03, 0x01, 0xA0, 0x00])
 network.send_message(0x211, [0x00, 0x03, 0x01, 0xA0, 0x00])
 
+dateTimeObj = datetime.now()
+print(dateTimeObj, "--------------------------------------------------")
+
 pack_voltage1 = node1.sdo[0x4100][1].raw
 print(pack_voltage1/100, "V")
 
@@ -36,6 +40,12 @@ print(pack_current/100, "A")
 pack_pressure = node1.sdo[0x4100][3].raw
 print(pack_pressure)
 
+pack_pressure = node2.sdo[0x4100][3].raw
+print(pack_pressure)
+
+pack_pressure = node3.sdo[0x4100][3].raw
+print(pack_pressure)
+
 signed_pack_temperature = node1.sdo[0x4100][4].raw
 pack_temperature = (100/255)*(signed_pack_temperature + 128) - 25
 print(round(pack_temperature, 2), "C")
@@ -47,6 +57,8 @@ print(round(pack_temperature2, 2), "C")
 signed_pack_temperature3 = node3.sdo[0x4100][4].raw
 pack_temperature3 = (100/255)*(signed_pack_temperature3 + 128) - 25
 print(round(pack_temperature3, 2), "C")
+
+print('\n')
 
 network.sync.start(1)
 network.sync.stop()
