@@ -1,7 +1,7 @@
 ## Virtual environment and requirements
 
 - Compiled in a virtual environment using Python 3.5 as interpreter in PyCharm
-- Added libraries: `canopen` and `pyserial`
+- Requirements: `canopen` and `pyserial`
 
 <!--
 - Load `requirements.txt` when creating a new virtual environment:
