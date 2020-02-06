@@ -1,4 +1,4 @@
-## Shit don't work?
+## Shit doesn't work?
 
 - [Create a new virtual environment](https://github.com/s-estay/Python/tree/master/matplotlib#create-new-virtual-environment)
 - [Install requirements](https://github.com/s-estay/Python/tree/master/matplotlib#virtual-environment-requirements)
