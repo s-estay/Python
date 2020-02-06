@@ -1,5 +1,6 @@
-.idea/
-01\ hello/.idea/
-02\ tic-tac-toe/.idea/
+cdio/
+hello/
+tic-tac-toe/
 canbus/.idea/
 canbus/venv/
+matplotlib/venv/
