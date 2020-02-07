@@ -7,7 +7,9 @@
 - We don't need to specify `python3 05-build-in-styles.py` because Python 3 is the only version of Python installed in this virtual environment. Don't take my word, see it for yourself: `python --version`
 - Do stuff and when done, deactivate the virtual environment: `deactivate`
 
-![](https://github.com/s-estay/Python/blob/master/matplotlib/plot.png)
+<p align="center">
+  <img src="https://github.com/s-estay/Python/blob/master/matplotlib/plot.png">
+</p>
 
 ## Create new virtual environment
 
@@ -32,6 +34,21 @@
 - Run `pip freeze > project/requirements.txt` to save the requirements in a txt-file
 - To check the txt-file: `cat requirements.txt`
 - Now, let's say we have deleted our environment and we want to create a new one with the correct requirements: `pip install -r project/requirements.txt`
+
+## How to run `27-live-plot-csv-file.py`
+
+The idea here is to plot data from a source that is generating live data. Python file `data6-gen.py` will generate that live data and save it to a csv-file `data6.csv`. To plot that live data:
+
+- Delete `data6.csv`
+- Open terminal and activate the virtual environment
+- Run `python 27-live-plot-csv-file.py`
+- Open a second terminal and activate the virtual environment
+- Run `python data6-gen.py`
+- Do the same to run `28-live-plot-csv-file-ii.py`
+
+<p align="center">
+  <img src="https://github.com/s-estay/Python/blob/master/matplotlib/live-plot.png">
+</p>
 
 ## References
 
