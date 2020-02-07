@@ -4,8 +4,10 @@
 - [Install requirements](https://github.com/s-estay/Python/tree/master/matplotlib#virtual-environment-requirements)
 - Activate virtual environment: `source project/venv/bin/activate`
 - Run script: `python 05-build-in-styles.py`
-- We don't need to specify `python3 05-build-in-styles.py` because Python 3 is only version of Python installed in this virtual environment. Don't take my word, see it for yourself: `python --version`
+- We don't need to specify `python3 05-build-in-styles.py` because Python 3 is the only version of Python installed in this virtual environment. Don't take my word, see it for yourself: `python --version`
 - Do stuff and when done, deactivate the virtual environment: `deactivate`
+
+![](https://github.com/s-estay/Python/blob/master/matplotlib/plot.png)
 
 ## Create new virtual environment
 
@@ -39,3 +41,4 @@
 - [How to Use Virtual Environments with the Built-In venv Module](https://www.youtube.com/watch?v=Kg1Yvry_Ydk)
 - [Workflow: Python and Virtualenv](https://www.youtube.com/watch?v=nnhjvHYRsmM)
 - [Using .gitignore the Right Way](https://labs.consol.de/development/git/2017/02/22/gitignore.html)
+- [Time format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
