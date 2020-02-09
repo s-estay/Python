@@ -41,9 +41,9 @@ The idea here is to plot data from a source that is generating live data. Python
 
 - Delete `data6.csv`
 - Open terminal and activate the virtual environment
-- Run `python 27-live-plot-csv-file.py`
+- Run `python data6-gen.py` to generate new live data to `data6.csv`
 - Open a second terminal and activate the virtual environment
-- Run `python data6-gen.py`
+- Run `python 27-live-plot-csv-file.py`
 - Do the same to run `28-live-plot-csv-file-ii.py`
 
 <p align="center">
