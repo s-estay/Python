@@ -50,6 +50,21 @@ The idea here is to plot data from a source that is generating live data. Python
   <img src="https://github.com/s-estay/Python/blob/master/matplotlib/live-plot.png">
 </p>
 
+## CSV files
+
+- CSV stands for *Comma-separated values*
+- Allow us to put into a plain text file some data and use some type of delimiter (usually a comma) to separate the different fields - [Corey Schafer: CSV Module](https://youtu.be/q5uM4VKywbA)
+- In the sample csv-file below, the fields (keys) are *first_name*, *last_name* and *email*, separated by a comma.
+```
+first_name,last_name,email
+John,Doe,john-doe@bogusemail.com
+Mary,Smith-Robinson,maryjacobs@bogusemail.com
+Dave,Smith,davesmith@bogusemail.com
+Jane,Stuart,janestuart@bogusemail.com
+Tom,Wright,tomwright@bogusemail.com
+Steve,Robinson,steverobinson@bogusemail.com
+```
+
 ## References
 
 - [Matplotlib Tutorials: Playlist](https://www.youtube.com/playlist?list=PL-osiE80TeTvipOqomVEeZ1HRrcEvtZB_)
@@ -59,3 +74,4 @@ The idea here is to plot data from a source that is generating live data. Python
 - [Workflow: Python and Virtualenv](https://www.youtube.com/watch?v=nnhjvHYRsmM)
 - [Using .gitignore the Right Way](https://labs.consol.de/development/git/2017/02/22/gitignore.html)
 - [Time format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
+- [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
