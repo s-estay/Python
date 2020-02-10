@@ -64,7 +64,6 @@ Jane,Stuart,janestuart@bogusemail.com
 Tom,Wright,tomwright@bogusemail.com
 Steve,Robinson,steverobinson@bogusemail.com
 ```
-
 ## References
 
 - [Matplotlib Tutorials: Playlist](https://www.youtube.com/playlist?list=PL-osiE80TeTvipOqomVEeZ1HRrcEvtZB_)
@@ -75,3 +74,4 @@ Steve,Robinson,steverobinson@bogusemail.com
 - [Using .gitignore the Right Way](https://labs.consol.de/development/git/2017/02/22/gitignore.html)
 - [Time format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
 - [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
+- [Datetime](https://www.dataquest.io/blog/python-datetime-tutorial/)
