@@ -24,7 +24,7 @@ pack_temperature = (100/255)*(signed_pack_temperature + 128) - 25
 new_data_row = {'date' : date, 'time' : time, 'voltage' : pack_voltage/100, 'temperature' : round(pack_temperature, 2)}
 
 # csv append mode
-with open('log1.csv', 'a') as new_file:
+with open('log2.csv', 'a') as new_file:
     fieldnames = ['date', 'time', 'voltage', 'temperature']
     csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter='\t')
     csv_writer.writerow(new_data_row)

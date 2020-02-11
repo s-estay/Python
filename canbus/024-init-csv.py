@@ -14,8 +14,8 @@ network.send_message(0x00, [0x01, 0x01])
 network.send_message(0x201, [0x00, 0x03, 0x01, 0xA0, 0x00])
 
 # csv write mode
-with open('log1.csv', 'w') as new_file:
-    fieldnames = ['time', 'voltage', 'temperature']
+with open('log3.csv', 'w') as new_file:
+    fieldnames = ['time', 'voltage', 'temperature', 'current', 'pressure']
     csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter='\t')
     csv_writer.writeheader()
 

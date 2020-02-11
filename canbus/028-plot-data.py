@@ -5,7 +5,7 @@ from matplotlib.dates import DateFormatter
 
 plt.style.use('seaborn')
 
-data = pd.read_csv('log1.csv', sep='\t')
+data = pd.read_csv('log2.csv', sep='\t')
 
 data['time'] = pd.to_datetime(data['time'])
 

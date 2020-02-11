@@ -27,12 +27,14 @@ def main_loop():
     pack_voltage = node.sdo[0x4100][1].raw
     signed_pack_temperature = node.sdo[0x4100][4].raw
     pack_temperature = (100/255)*(signed_pack_temperature + 128) - 25
+    pack_current = node.sdo[0x4100][2].raw
+    pack_pressure = node.sdo[0x4100][3].raw
 
-    new_data_row = {'time' : 'time', 'voltage' : pack_voltage/100, 'temperature' : round(pack_temperature, 2)}
+    new_data_row = {'time' : time, 'voltage' : pack_voltage/100, 'temperature' : round(pack_temperature, 2), 'current' : pack_current/100, 'pressure' : pack_pressure}
 
     # csv append mode
-    with open('log1.csv', 'a') as new_file:
-        fieldnames = ['time', 'voltage', 'temperature']
+    with open('log3.csv', 'a') as new_file:
+        fieldnames = ['time', 'voltage', 'temperature', 'current', 'pressure']
         csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter='\t')
         csv_writer.writerow(new_data_row)
 

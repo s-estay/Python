@@ -75,3 +75,4 @@ Steve,Robinson,steverobinson@bogusemail.com
 - [Time format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
 - [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 - [Datetime](https://www.dataquest.io/blog/python-datetime-tutorial/)
+- [Animations with Matplotlib](https://towardsdatascience.com/animations-with-matplotlib-d96375c5442c)

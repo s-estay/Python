@@ -4,7 +4,7 @@ from datetime import datetime
 
 plt.style.use('fivethirtyeight')
 
-data = pd.read_csv('log1.csv', sep='\t')
+data = pd.read_csv('log2.csv', sep='\t')
 
 my_time = datetime.strptime(data['time'][0], "%H:%M:%S")
 print(my_time.hour)
