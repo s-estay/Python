@@ -29,3 +29,10 @@ print(voltage[0])
 
 temperature = data['temperature']
 print(temperature[0])
+
+with open('log2.csv') as f:
+    s = sum(1 for line in f)
+print(s)
+
+bottom = data['voltage'].tail(1)
+print(bottom)
