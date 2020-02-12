@@ -10,7 +10,7 @@ def setup():
     global node
 
     network = canopen.Network()
-    network.connect(channel='/dev/ttyACM0', bustype='slcan', bitrate=250000)
+    network.connect(channel='/dev/ttyACM1', bustype='slcan', bitrate=250000)
 
     node = canopen.RemoteNode(1, 'lmu-dictionary.eds')
     network.add_node(node)
@@ -33,7 +33,7 @@ def main_loop():
     new_data_row = {'time' : time, 'voltage' : pack_voltage/100, 'temperature' : round(pack_temperature, 2), 'current' : pack_current/100, 'pressure' : pack_pressure}
 
     # csv append mode
-    with open('log3.csv', 'a') as new_file:
+    with open('log6.csv', 'a') as new_file:
         fieldnames = ['time', 'voltage', 'temperature', 'current', 'pressure']
         csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter='\t')
         csv_writer.writerow(new_data_row)

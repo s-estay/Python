@@ -9,7 +9,7 @@ plt.style.use('seaborn')
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, ncols=1, sharex=True)
 
 def animate(i):
-    data = pd.read_csv('log3.csv', sep='\t')
+    data = pd.read_csv('log6.csv', sep='\t')
 
     data['time'] = pd.to_datetime(data['time'])
 
@@ -29,9 +29,9 @@ def animate(i):
     ax3.plot_date(time, current, label='Current', color='seagreen', linewidth=1, linestyle='solid', marker='')
     ax4.plot_date(time, pressure, label='Pressure', color='seagreen',linewidth=1, linestyle='solid', marker='')
 
-    ax1.set_ylim([130,145])
-    ax2.set_ylim([20,50])
-    ax3.set_ylim([-3,3])
+    ax1.set_ylim([115,145])
+    ax2.set_ylim([20,40])
+    ax3.set_ylim([-10,10])
     ax4.set_ylim([-5, 15])
 
     ax1.legend(loc='upper left')
@@ -43,10 +43,11 @@ def animate(i):
 
     props = dict(boxstyle='round',fc='w', ec='k',lw=0.5, pad=0.25)
 
-    ax1.annotate('{} V'.format(data['voltage'][n]), xy=(data['time'][n], data['voltage'][n]), xytext=(data['time'][n] + pd.DateOffset(minutes=11), data['voltage'][n]), bbox=props)
-    ax2.annotate('{} °C'.format(data['temperature'][n]), xy=(data['time'][n], data['temperature'][n]), xytext=(data['time'][n] + pd.DateOffset(minutes=11), data['temperature'][n]), bbox=props)
-    ax3.annotate('{} A'.format(data['current'][n]), xy=(data['time'][n], data['current'][n]), xytext=(data['time'][n] + pd.DateOffset(minutes=11), data['current'][n]), bbox=props)
-    ax4.annotate('{} bar'.format(data['pressure'][n]), xy=(data['time'][n], data['pressure'][n]), xytext=(data['time'][n] + pd.DateOffset(minutes=11), data['pressure'][n]), bbox=props)
+    ax1.annotate('{} V'.format(data['voltage'][n]), xy=(data['time'][n], data['voltage'][n]), xytext=(data['time'][n], data['voltage'][n]), bbox=props)
+    ax2.annotate('{} °C'.format(data['temperature'][n]), xy=(data['time'][n], data['temperature'][n]), xytext=(data['time'][n], data['temperature'][n]), bbox=props)
+    ax3.annotate('{} A'.format(data['current'][n]), xy=(data['time'][n], data['current'][n]), xytext=(data['time'][n], data['current'][n]), bbox=props)
+    ax4.annotate('{} bar'.format(data['pressure'][n]), xy=(data['time'][n], data['pressure'][n]), xytext=(data['time'][n], data['pressure'][n]), bbox=props)
+    # ax4.annotate('{} bar'.format(data['pressure'][n]), xy=(data['time'][n], data['pressure'][n]), xytext=(data['time'][n] + pd.DateOffset(minutes=11), data['pressure'][n]), bbox=props)
 
     ax1.set_title('Battery measurement {}'.format(data['time'][0]))
 
