@@ -2,3 +2,4 @@ canbus/.idea/
 canbus/venv/
 matplotlib/venv/
 matplotlib/data6.csv
+*.pyc

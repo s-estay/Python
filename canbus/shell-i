@@ -1,0 +1,7 @@
+# $ bash c
+# welcome
+
+#!/bin/bash
+
+echo "welcome"
+python -c 'from a import b; b(1)'
