@@ -10,7 +10,7 @@ def setup():
     global nodes_in_network
 
     network = canopen.Network()
-    network.connect(channel='/dev/ttyACM1', bustype='slcan', bitrate=250000)
+    network.connect(channel='/dev/ttyACM0', bustype='slcan', bitrate=250000)
 
     nodes_in_network = []
     nodes = {}

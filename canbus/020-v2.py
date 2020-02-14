@@ -27,8 +27,12 @@ print('Nodes in network: ', nodes_in_network)
 for x in nodes:
     signed_pack_temperature = nodes[x].sdo[0x4100][3].raw
     pack_temperature = round((1 / 655) * (signed_pack_temperature) - 25, 2)
+    print(pack_temperature)
     pack_current = nodes[x].sdo[0x4100][2].raw
     pack_voltage = nodes[x].sdo[0x4100][1].raw
+    # pack_pressure = nodes[x].sdo[0x4100][3].raw
+    # print(pack_pressure)
+    # print('{} bar'.format(pack_pressure*(12/65500) - 2))
     pack_data = {x: {"pack_voltage": pack_voltage/100, "pack_current": pack_current/100, "temperature": pack_temperature}}
     all_data.update(pack_data)
     # print(x, pack_voltage / 100, 'V')
@@ -36,8 +40,8 @@ for x in nodes:
 
 print(all_data)
 print('Nodes in network: ', nodes_in_network)
-print(all_data.get("node1").get("pack_voltage"))
-print(all_data.get("node1").get("pack_current"))
-print(all_data.get("node1").get("pack_temperature"))
+# print(all_data.get("node1").get("pack_voltage"))
+# print(all_data.get("node1").get("pack_current"))
+# print(all_data.get("node1").get("pack_temperature"))
 
 network.disconnect()

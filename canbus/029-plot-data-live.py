@@ -9,7 +9,7 @@ plt.style.use('seaborn')
 fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, ncols=1, sharex=True)
 
 def animate(i):
-    data = pd.read_csv('log6.csv', sep='\t')
+    data = pd.read_csv('log7.csv', sep='\t')
 
     data['time'] = pd.to_datetime(data['time'])
 
