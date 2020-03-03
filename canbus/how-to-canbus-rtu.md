@@ -48,7 +48,7 @@ Found node 2
 Found node 4
 ```
 
-What is inside `01-scan-nodes.py`?:
+What's inside `01-scan-nodes.py`?:
 ```
 import os
 
@@ -84,7 +84,7 @@ Found node 2
 Found node 4
 ```
 
-What is inside `02-config-can-scan.py`?:
+What's inside `02-config-can-scan.py`?:
 ```
 import os
 

@@ -8,7 +8,6 @@ all_data = {}
 
 flags = collections.OrderedDict()
 flags["module low"] = False
-flags["module low"] = False
 flags["module high"] = False
 flags["current low"] = False
 flags["current high"] = False
@@ -192,4 +191,3 @@ print(check_flags(2))
 #     for b in pack_status_16bits:
 #         if b == 1:
 #            print(index[b])
-
