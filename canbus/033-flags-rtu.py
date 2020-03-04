@@ -16,24 +16,7 @@ import collections
 nodes_in_network = []
 nodes = {}
 all_data = {}
-
 flags = {}
-flags["module low"] = False
-flags["module high"] = False
-flags["current low"] = False
-flags["current high"] = False
-flags["temperature low"] = False
-flags["temperature high"] = False
-flags["pressure low"] = False
-flags["pressure high"] = False
-flags["module fault"] = False
-flags["sensor fault"] = False
-flags["pack low"] = False
-flags["pack high"] = False
-flags["internal error"] = False
-flags["power save mode"] = False
-flags["startup"] = False
-flags["heartbeat"] = False
 
 
 def setup():
@@ -50,6 +33,29 @@ def setup():
         network.send_message(0x200 + node_id, [0x02, 0x00, 0x01, 0x00])
 
     time.sleep(0.5)
+    init_flags()
+
+
+def init_flags():
+    flags_list = [
+        "module low",
+        "module high",
+        "current low",
+        "current high",
+        "temperature low",
+        "temperature high",
+        "pressure low",
+        "pressure high",
+        "module fault",
+        "sensor fault",
+        "pack low",
+        "pack high",
+        "internal error",
+        "power save mode",
+        "startup",
+        "heartbeat"]
+
+    flags = dict.fromkeys(flags_list, False)
 
 
 def flags_node(node_id):
