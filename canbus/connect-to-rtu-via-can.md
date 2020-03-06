@@ -44,9 +44,13 @@ Lets see what we got in the BBG:
 ```
 $ ls
 01-scan-nodes.py
+02-config-can-scan.py
+03-pack-data.py
+04-flags.py
+imu-dictionary.eds
 ```
 
-Run that Python script to scan nodes in the network:
+Run `01-scan-nodes.py` to scan nodes in the network:
 ```
 $ python3 01-scan-nodes.py
 Found node 1
@@ -188,6 +192,7 @@ os.system('sudo ifconfig can1 down')
 ```
 
 This Python file prints a whole dictionary: `print(all_data)`
+
 To get just one value: `print(all_data.get("node4").get("pack_voltage"))`
 
 ### Flags
