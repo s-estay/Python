@@ -19,22 +19,23 @@ This will give the batteries's status in stand-by. To get data when charging and
 
 ## Connect to router
 
-Connect to **Solarbora_5G** WiFi network
-Password: Hejhopp123
+- Connect to **Solarbora_5G** WiFi network
+- Password: Hejhopp123
 
+- Access router's configuration site:
+- Default router address: `192.168.2.1`
+- User name: admin
+- Password: Solarbora
 
-Access router's configuration site:
-Default router address: 192.168.2.1
-User name: admin
-Password: Solarbora
-
-In the **clients list**, RTU is:
-Client name: modio
-Client IP-adress: 192.168.2.194
+- In the **clients list**, RTU is:
+- Client name: modio
+- Client IP-adress: `192.168.2.194`
 
 ## Connect to RTU
 
-In the terminal: `ssh root@192.168.2.194 -p 3022`
+- In the terminal: `ssh root@192.168.2.194 -p 3022`
+- Go to Solar Bora's Linux service: `cd /modio/sb-service`
+- What's inside? `ls -lh`
 
 ## Python requirements
 
