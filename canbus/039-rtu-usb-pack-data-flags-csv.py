@@ -82,5 +82,4 @@ def save_to_csv():
 setup()
 save_to_csv()
 
-
 network.disconnect()

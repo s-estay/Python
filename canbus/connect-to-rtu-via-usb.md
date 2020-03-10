@@ -11,7 +11,7 @@ There're differents firmwares for the CANable USB-CAN adapter. The wrong one ins
 - Give power to RTU (24V) through backplane, which gets its power from a 24V phone regulator OR the batteries
 - Connect batteries in series via Ethernet and terminate the bus with a 120 Ohms termination
 
-This will give the batteries's status in stand-by. To get data when charging and discharging:
+This will leave the batteries in stand-by. To get data when charging and discharging:
 
 - Connect batteries and the mains switch in series
 - Connect charger (use power supply as PV) or inverter (use inductions plates as loads) to EMS
@@ -20,20 +20,20 @@ This will give the batteries's status in stand-by. To get data when charging and
 ## Connect to router
 
 - Connect to **Solarbora_5G** WiFi network
-- Password: Hejhopp123
+- Password: `Hejhopp123`
 
 - Access router's configuration site:
 - Default router address: `192.168.2.1`
-- User name: admin
-- Password: Solarbora
+- User name: `admin`
+- Password: `Solarbora`
 
 - In the **clients list**, RTU is:
-- Client name: modio
+- Client name: `modio`
 - Client IP-adress: `192.168.2.194`
 
 ## Connect to RTU
 
-- In the terminal: `ssh root@192.168.2.194 -p 3022`
+- In the computer's terminal: `ssh root@192.168.2.194 -p 3022`
 - Go to Solar Bora's Linux service: `cd /modio/sb-service`
 - What's inside? `ls -lh`
 
@@ -81,7 +81,19 @@ Code locally in your computer and then copy the file to the RTU. Editing Python 
 - Copy Python script to the RTU: `scp -P 3022 code.py root@192.168.2.194:/modio/sb-service` (in computer's terminal)
 - Run Python script: `python3 code.py` (in RTU's terminal)
 
+## CSV file
+
+It has a tab `\t` as delimiter. Change it if you don't like it. The default value is a comma (CSV stands for Comma-separated values). The result is saved to `log.csv`. Every time a new measurement is made, `log.csv` will be reseted with new data. Modio want it to work this way.
+
+[Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values) 3/10/2020, 12:17:48 PM
+
+## Modio integration
+
+And talking about Modio, their service will run `sb-service.py` in a given interval of time, saving (appending) the output to another csv-file located in a remote server. Modio will keep track of the time, meaning the exact time when each measurement was made.
+
 ## Python
+
+Everything is coded with dynamic-variable-creation in mind.
 
 ### Scan nodes
 
